@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const OpenAI = require("openai");
-const OPENAI_API_KEY = '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'
+//const OPENAI_API_KEY = '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'
 const app = express();
 const port = 3001;
+require('dotenv').config();
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your React app's URL
+  origin: 'http://localhost:3000',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -17,7 +18,7 @@ app.use(bodyParser.json());
 // OpenAI API configuration
 
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 // API endpoint to generate story continuation

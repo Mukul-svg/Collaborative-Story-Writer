@@ -13,6 +13,7 @@ function App() {
       setUserStory(userStory + response.data.generatedText);
     } catch (error) {
       console.error(error);
+      alert("Error");
     }
   };
 
